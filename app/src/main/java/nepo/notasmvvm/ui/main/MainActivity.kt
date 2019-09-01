@@ -1,13 +1,12 @@
-package nepo.notasmvvm
+package nepo.notasmvvm.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.zip.Inflater
+import nepo.notasmvvm.R
 
 class MainActivity : AppCompatActivity() {
 
