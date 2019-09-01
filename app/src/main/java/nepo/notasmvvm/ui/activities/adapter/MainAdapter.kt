@@ -1,4 +1,4 @@
-package nepo.notasmvvm.ui.main.adapter
+package nepo.notasmvvm.ui.activities.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,14 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_item.view.*
 import nepo.notasmvvm.R
-import nepo.notasmvvm.domain.Item
+import nepo.notasmvvm.model.domain.Item
 
 class MainAdapter(val listItem: MutableList<Item>?) : RecyclerView.Adapter<MainViewHolder>() {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        return MainViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_item,parent,false))
+        return MainViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.card_item,
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -24,6 +28,17 @@ class MainAdapter(val listItem: MutableList<Item>?) : RecyclerView.Adapter<MainV
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         holder.bindViewHolder(listItem!![position])
     }
+
+    fun add(item: Item){
+        listItem!!.add(item)
+        notifyDataSetChanged()
+    }
+
+    fun remove(item:Item){
+        listItem!!.add(item)
+        notifyDataSetChanged()
+    }
+
 }
 class MainViewHolder(var v:View) : RecyclerView.ViewHolder(v){
 

@@ -1,4 +1,4 @@
-package nepo.notasmvvm.ui.main
+package nepo.notasmvvm.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
