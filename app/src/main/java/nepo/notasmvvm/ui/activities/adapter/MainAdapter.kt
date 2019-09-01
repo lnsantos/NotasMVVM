@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.card_item.view.*
 import nepo.notasmvvm.R
 import nepo.notasmvvm.model.domain.Item
 
-class MainAdapter(val listItem: MutableList<Item>?) : RecyclerView.Adapter<MainViewHolder>() {
+class MainAdapter(val listItem: MutableList<List<Item>>? = mutableListOf()) : RecyclerView.Adapter<MainViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         return MainViewHolder(
@@ -26,11 +26,17 @@ class MainAdapter(val listItem: MutableList<Item>?) : RecyclerView.Adapter<MainV
         }else return 0}
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bindViewHolder(listItem!![position])
+        holder.bindViewHolder(listItem.get(position))
     }
 
-    fun add(item: Item){
-        listItem!!.add(item)
+    fun add(item: Item?){
+        listItem?.add(item)
+        notifyDataSetChanged()
+    }
+
+    fun add(itens: List<Item>){
+        listItem!!.clear()
+        listItem!!.addAll(itens)
         notifyDataSetChanged()
     }
 
